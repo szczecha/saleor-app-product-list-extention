@@ -24,6 +24,8 @@ A Saleor app that enhances the product list view by adding metadata-based filter
 
 ## 📋 How to Use
 
+https://github.com/user-attachments/assets/d70574ed-4f63-4240-a2d5-667257296698
+
 1. Install the app in your Saleor Dashboard
 2. Navigate to the Products list
 3. Click on "Filter Products by Metadata" in the actions menu
