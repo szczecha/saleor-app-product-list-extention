@@ -1,9 +1,19 @@
 import { actions, useAppBridge } from "@saleor/app-sdk/app-bridge";
 import { Box, Button, Input, Text, Spinner } from "@saleor/macaw-ui";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useQuery } from "@apollo/client";
 import type { PageListQuery, ProductsByMetadataQuery } from "../../generated/graphql";
 import { PageListDocument, ProductsByMetadataDocument } from "../../generated/graphql";
+
+// Local storage key for persisting search state
+const STORAGE_KEY = "product-metadata-filter-state";
+
+interface StoredState {
+  metadataKey: string;
+  metadataValue: string;
+  isSearching: boolean;
+  lastSearchTimestamp: number;
+}
 
 interface ProductNode {
   id: string;
@@ -15,14 +25,61 @@ interface ProductNode {
 
 const ProductMetadataFilter = () => {
   const { appBridge } = useAppBridge();
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [metadataKey, setMetadataKey] = useState("brand-type");
   const [metadataValue, setMetadataValue] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  // Query for pages - removed onCompleted callback as it's not necessary
+  // Load saved state on mount
+  useEffect(() => {
+    try {
+      const savedState = localStorage.getItem(STORAGE_KEY);
+      if (savedState) {
+        const parsed = JSON.parse(savedState) as StoredState;
+        // Only restore state if it's less than 1 hour old
+        if (Date.now() - parsed.lastSearchTimestamp < 3600000) {
+          setMetadataKey(parsed.metadataKey);
+          setMetadataValue(parsed.metadataValue);
+          setIsSearching(parsed.isSearching);
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    } catch (error) {
+      console.error("Error loading saved state:", error);
+    }
+  }, []);
+
+  // Save state when it changes
+  useEffect(() => {
+    if (isSearching) {
+      const stateToSave: StoredState = {
+        metadataKey,
+        metadataValue,
+        isSearching,
+        lastSearchTimestamp: Date.now()
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(stateToSave));
+    }
+  }, [metadataKey, metadataValue, isSearching]);
+
+  // Handle clicks outside dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Query for pages
   const { data: pagesData, loading: pagesLoading } = useQuery<PageListQuery>(PageListDocument, {
-    // Add fetchPolicy to help with caching
     fetchPolicy: "cache-first"
   });
 
@@ -86,7 +143,7 @@ const ProductMetadataFilter = () => {
 
   return (
     <Box padding={8}>
-      <Text as="h1" marginBottom={4}>Filter Products by Metadata</Text>
+      <Text as="h1" marginBottom={4}>Add Metadata Filter</Text>
       <Box
         as="form"
         display="flex"
@@ -101,7 +158,7 @@ const ProductMetadataFilter = () => {
           required
           disabled={productsLoading}
         />
-        <Box position="relative">
+        <Box position="relative" ref={dropdownRef}>
           <Input
             label="Metadata Value"
             value={metadataValue}
@@ -142,7 +199,7 @@ const ProductMetadataFilter = () => {
                     (e.currentTarget as HTMLElement).style.backgroundColor = "#fff";
                   }}
                 >
-                  <Text>{title}</Text>
+                  <Text color="default2">{title}</Text>
                 </Box>
               ))}
             </Box>
