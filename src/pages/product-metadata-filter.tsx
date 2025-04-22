@@ -1,6 +1,6 @@
 import { actions, useAppBridge } from "@saleor/app-sdk/app-bridge";
 import { Box, Button, Input, Text, Spinner } from "@saleor/macaw-ui";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useQuery } from "@apollo/client";
 import type { PageListQuery, ProductsByMetadataQuery } from "../../generated/graphql";
 import { PageListDocument, ProductsByMetadataDocument } from "../../generated/graphql";
@@ -8,6 +8,9 @@ import { PageListDocument, ProductsByMetadataDocument } from "../../generated/gr
 interface ProductNode {
   id: string;
   name: string;
+  thumbnail?: {
+    url: string;
+  } | null;
 }
 
 const ProductMetadataFilter = () => {
@@ -16,13 +19,11 @@ const ProductMetadataFilter = () => {
   const [metadataValue, setMetadataValue] = useState("");
   const [isSearching, setIsSearching] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isInitialized, setIsInitialized] = useState(false);
 
-  // Query for pages
+  // Query for pages - removed onCompleted callback as it's not necessary
   const { data: pagesData, loading: pagesLoading } = useQuery<PageListQuery>(PageListDocument, {
-    onCompleted: () => {
-      setIsInitialized(true);
-    }
+    // Add fetchPolicy to help with caching
+    fetchPolicy: "cache-first"
   });
 
   // Filter page titles based on input value
@@ -45,14 +46,7 @@ const ProductMetadataFilter = () => {
     skip: !isSearching
   });
 
-  // Reset search state when component unmounts
-  useEffect(() => {
-    return () => {
-      setIsSearching(false);
-    };
-  }, []);
-
-  if (!isInitialized) {
+  if (pagesLoading) {
     return (
       <Box padding={8} display="flex" alignItems="center" justifyContent="center">
         <Spinner />
@@ -186,7 +180,7 @@ const ProductMetadataFilter = () => {
                 style={{ 
                   cursor: "pointer",
                   backgroundColor: "#fff",
-                  borderRadius: "4px",
+                  borderRadius: 4,
                   border: "1px solid #eee",
                   transition: "all 0.2s"
                 }}
@@ -197,9 +191,41 @@ const ProductMetadataFilter = () => {
                   (e.currentTarget as HTMLElement).style.backgroundColor = "#fff";
                 }}
               >
-                <Text>
-                  {node.name} (ID: {node.id})
-                </Text>
+                <Box display="flex" alignItems="center" gap={4}>
+                  {node.thumbnail?.url ? (
+                    <Box
+                      width={10}
+                      height={10}
+                      borderRadius={4}
+                      overflow="hidden"
+                    >
+                      <img 
+                        src={node.thumbnail.url} 
+                        alt={node.name}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover"
+                        }}
+                      />
+                    </Box>
+                  ) : (
+                    <Box 
+                      width={10}
+                      height={10}
+                      backgroundColor="transparent"
+                      borderRadius={4}
+                      display="flex"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <Text color="inherit">No image</Text>
+                    </Box>
+                  )}
+                  <Text>
+                    {node.name} (ID: {node.id})
+                  </Text>
+                </Box>
               </Box>
             ))}
           </Box>
