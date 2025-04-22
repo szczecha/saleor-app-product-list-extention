@@ -21,10 +21,6 @@ A Saleor app that enhances the product list view by adding metadata-based filter
 2. Add brand metadata to your products (e.g., key: "brand", value: "Brand Name")
 3. Use the app to quickly filter products by brand, with suggestions from your brand pages
 
-### Category Management
-1. Create Pages for your category structure
-2. Tag products with category metadata
-3. Filter products using category names from your Pages
 
 ## 📋 How to Use
 
