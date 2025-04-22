@@ -54,144 +54,90 @@ const IndexPage: NextPage = () => {
         })
       );
     }
-
-    /**
-     * Otherwise, assume app is accessed outside of Dashboard, so href attribute on <a> will work
-     */
   };
 
   const isLocalHost = global.location.href.includes("localhost");
 
+  const handleGoToProducts = () => {
+    appBridge?.dispatch(
+      actions.Redirect({
+        to: "/products",
+      })
+    );
+  };
+
   return (
     <Box padding={8}>
-      <Text size={11}>Welcome to Saleor App Template (Next.js) 🚀</Text>
-      <Text as={"p"} marginY={4}>
-        Saleor App Template is a minimalistic boilerplate that provides a working example of a
-        Saleor app.
-      </Text>
-      {appBridgeState?.ready && mounted && (
-        <Link href="/actions">
-          <Button variant="secondary">See what your app can do →</Button>
-        </Link>
-      )}
+      <Text as="h1" marginBottom={6}>Product List Metadata Filter</Text>
 
-      <Text as={"p"} marginTop={8}>
-        Explore the App Template by visiting:
-      </Text>
-      <ul>
-        <li>
-          <code>/src/pages/api/manifest</code> - the{" "}
-          <a
-            href="https://docs.saleor.io/docs/3.x/developer/extending/apps/manifest"
-            target="_blank"
-            rel="noreferrer"
-          >
-            App Manifest
-          </a>
-          .
-        </li>
-        <li>
-          <code>/src/pages/api/webhooks/order-created</code> - an example <code>ORDER_CREATED</code>{" "}
-          webhook handler.
-        </li>
-        <li>
-          <code>/graphql</code> - the pre-defined GraphQL queries.
-        </li>
-        <li>
-          <code>/generated/graphql.ts</code> - the code generated for those queries by{" "}
-          <a target="_blank" rel="noreferrer" href="https://the-guild.dev/graphql/codegen">
-            GraphQL Code Generator
-          </a>
-          .
-        </li>
-      </ul>
-      <Text size={8} marginTop={8} as={"h2"}>
-        Resources
-      </Text>
-      <ul>
-        <li>
-          <a
-            onClick={handleLinkClick}
-            target="_blank"
-            href="https://docs.saleor.io/docs/3.x/developer/extending/apps/key-concepts"
-            rel="noreferrer"
-          >
-            <Text color={"info1"}>Apps documentation </Text>
-          </a>
-        </li>
-        <li>
-          <a
-            onClick={handleLinkClick}
-            target="_blank"
-            rel="noreferrer"
-            href="https://docs.saleor.io/docs/3.x/developer/extending/apps/developing-with-tunnels"
-          >
-            <Text color={"info1"}>Tunneling the app</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            onClick={handleLinkClick}
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/saleor/app-examples"
-          >
-            <Text color={"info1"}>App Examples repository</Text>
-          </a>
-        </li>
+      <Box marginBottom={8}>
+        <Text as="h2" marginBottom={4}>About this app</Text>
+        <Text as="p" marginBottom={2}>
+          This app extends Saleor's product list functionality by adding metadata-based filtering capabilities. 
+          It allows you to search for products based on their metadata key-value pairs.
+        </Text>
+      </Box>
 
-        <li>
-          <a
-            onClick={handleLinkClick}
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/saleor/saleor-app-sdk"
-          >
-            <Text color={"info1"}>Saleor App SDK</Text>
-          </a>
-        </li>
+      <Box marginBottom={8}>
+        <Text as="h2" marginBottom={4}>Features</Text>
+        <Box display="flex" flexDirection="column" gap={2}>
+          <Text as="p">✨ Filter products by metadata key-value pairs</Text>
+          <Text as="p">📄 Page-based suggestions - use your Pages as a source for metadata values (perfect for brand lists, categories, etc.)</Text>
+          <Text as="p">🖼️ Visual product list with thumbnails</Text>
+          <Text as="p">🔗 Quick access to product details</Text>
+        </Box>
+      </Box>
 
-        <li>
-          <a
-            onClick={handleLinkClick}
+      <Box marginBottom={8}>
+        <Text as="h2" marginBottom={4}>How to use</Text>
+        <Box display="flex" flexDirection="column" gap={2}>
+          <Text as="p">1. Go to the Products list in your dashboard</Text>
+          <Text as="p">2. Click on "Filter Products by Metadata" in the actions menu</Text>
+          <Text as="p">3. Enter a metadata key (default: "brand")</Text>
+          <Text as="p">4. Type to see suggestions from your Pages or enter a custom value</Text>
+          <Text as="p">5. Click "Search Products" to filter the list</Text>
+        </Box>
+      </Box>
+
+      <Box marginBottom={8}>
+        <Text as="h2" marginBottom={4}>Getting Started</Text>
+        <Button onClick={handleGoToProducts}>
+          Go to Products List
+        </Button>
+      </Box>
+
+      <Box marginTop={12}>
+        <Text as="h2" marginBottom={4}>Need help?</Text>
+        <Box display="flex" flexDirection="column" gap={2}>
+          <Text 
+            as="a" 
+            href="https://docs.saleor.io/docs/3.x/developer/metadata" 
             target="_blank"
-            href="https://github.com/saleor/saleor-cli"
-            rel="noreferrer"
-          >
-            <Text color={"info1"}>Saleor CLI</Text>
-          </a>
-        </li>
-        <li>
-          <a
+            color="info1"
             onClick={handleLinkClick}
-            target="_blank"
-            href="https://github.com/saleor/apps"
-            rel="noreferrer"
           >
-            <Text color={"info1"}>Saleor App Store - official apps by Saleor Team</Text>
-          </a>
-        </li>
-        <li>
-          <a
+            📚 Learn about Saleor Metadata
+          </Text>
+          <Text 
+            as="a" 
+            href="https://github.com/szczecha/saleor-app-product-list-extention" 
+            target="_blank"
+            color="info1"
             onClick={handleLinkClick}
-            target="_blank"
-            href="https://macaw-ui-next.vercel.app/?path=/docs/getting-started-installation--docs"
-            rel="noreferrer"
           >
-            <Text color={"info1"}>Macaw UI - official Saleor UI library</Text>
-          </a>
-        </li>
-        <li>
-          <a
+            💻 View source code
+          </Text>
+          <Text 
+            as="a" 
+            href="https://saleor.io/discord" 
+            target="_blank"
+            color="info1"
             onClick={handleLinkClick}
-            target="_blank"
-            href="https://nextjs.org/docs"
-            rel="noreferrer"
           >
-            <Text color={"info1"}>Next.js documentation</Text>
-          </a>
-        </li>
-      </ul>
+            💬 Join our Discord community
+          </Text>
+        </Box>
+      </Box>
 
       {mounted && !isLocalHost && !appBridgeState?.ready && (
         <>

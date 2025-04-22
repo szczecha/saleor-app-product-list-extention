@@ -33164,15 +33164,19 @@ export type _Service = {
 
 export type OrderCreatedWebhookPayloadFragment = { __typename?: 'OrderCreated', order?: { __typename?: 'Order', userEmail?: string | null, id: string, number: string, user?: { __typename?: 'User', email: string, firstName: string, lastName: string } | null } | null };
 
-export type OrderCreatedSubscriptionSubscriptionVariables = Exact<{ [key: string]: never; }>;
+export type PageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OrderCreatedSubscriptionSubscription = { __typename?: 'Subscription', event?: { __typename?: 'AccountChangeEmailRequested' } | { __typename?: 'AccountConfirmationRequested' } | { __typename?: 'AccountConfirmed' } | { __typename?: 'AccountDeleteRequested' } | { __typename?: 'AccountDeleted' } | { __typename?: 'AccountEmailChanged' } | { __typename?: 'AccountSetPasswordRequested' } | { __typename?: 'AddressCreated' } | { __typename?: 'AddressDeleted' } | { __typename?: 'AddressUpdated' } | { __typename?: 'AppDeleted' } | { __typename?: 'AppInstalled' } | { __typename?: 'AppStatusChanged' } | { __typename?: 'AppUpdated' } | { __typename?: 'AttributeCreated' } | { __typename?: 'AttributeDeleted' } | { __typename?: 'AttributeUpdated' } | { __typename?: 'AttributeValueCreated' } | { __typename?: 'AttributeValueDeleted' } | { __typename?: 'AttributeValueUpdated' } | { __typename?: 'CalculateTaxes' } | { __typename?: 'CategoryCreated' } | { __typename?: 'CategoryDeleted' } | { __typename?: 'CategoryUpdated' } | { __typename?: 'ChannelCreated' } | { __typename?: 'ChannelDeleted' } | { __typename?: 'ChannelMetadataUpdated' } | { __typename?: 'ChannelStatusChanged' } | { __typename?: 'ChannelUpdated' } | { __typename?: 'CheckoutCreated' } | { __typename?: 'CheckoutFilterShippingMethods' } | { __typename?: 'CheckoutFullyPaid' } | { __typename?: 'CheckoutMetadataUpdated' } | { __typename?: 'CheckoutUpdated' } | { __typename?: 'CollectionCreated' } | { __typename?: 'CollectionDeleted' } | { __typename?: 'CollectionMetadataUpdated' } | { __typename?: 'CollectionUpdated' } | { __typename?: 'CustomerCreated' } | { __typename?: 'CustomerMetadataUpdated' } | { __typename?: 'CustomerUpdated' } | { __typename?: 'DraftOrderCreated' } | { __typename?: 'DraftOrderDeleted' } | { __typename?: 'DraftOrderUpdated' } | { __typename?: 'FulfillmentApproved' } | { __typename?: 'FulfillmentCanceled' } | { __typename?: 'FulfillmentCreated' } | { __typename?: 'FulfillmentMetadataUpdated' } | { __typename?: 'FulfillmentTrackingNumberUpdated' } | { __typename?: 'GiftCardCreated' } | { __typename?: 'GiftCardDeleted' } | { __typename?: 'GiftCardExportCompleted' } | { __typename?: 'GiftCardMetadataUpdated' } | { __typename?: 'GiftCardSent' } | { __typename?: 'GiftCardStatusChanged' } | { __typename?: 'GiftCardUpdated' } | { __typename?: 'InvoiceDeleted' } | { __typename?: 'InvoiceRequested' } | { __typename?: 'InvoiceSent' } | { __typename?: 'ListStoredPaymentMethods' } | { __typename?: 'MenuCreated' } | { __typename?: 'MenuDeleted' } | { __typename?: 'MenuItemCreated' } | { __typename?: 'MenuItemDeleted' } | { __typename?: 'MenuItemUpdated' } | { __typename?: 'MenuUpdated' } | { __typename?: 'OrderBulkCreated' } | { __typename?: 'OrderCancelled' } | { __typename?: 'OrderConfirmed' } | { __typename?: 'OrderCreated', order?: { __typename?: 'Order', userEmail?: string | null, id: string, number: string, user?: { __typename?: 'User', email: string, firstName: string, lastName: string } | null } | null } | { __typename?: 'OrderExpired' } | { __typename?: 'OrderFilterShippingMethods' } | { __typename?: 'OrderFulfilled' } | { __typename?: 'OrderFullyPaid' } | { __typename?: 'OrderFullyRefunded' } | { __typename?: 'OrderMetadataUpdated' } | { __typename?: 'OrderPaid' } | { __typename?: 'OrderRefunded' } | { __typename?: 'OrderUpdated' } | { __typename?: 'PageCreated' } | { __typename?: 'PageDeleted' } | { __typename?: 'PageTypeCreated' } | { __typename?: 'PageTypeDeleted' } | { __typename?: 'PageTypeUpdated' } | { __typename?: 'PageUpdated' } | { __typename?: 'PaymentAuthorize' } | { __typename?: 'PaymentCaptureEvent' } | { __typename?: 'PaymentConfirmEvent' } | { __typename?: 'PaymentGatewayInitializeSession' } | { __typename?: 'PaymentGatewayInitializeTokenizationSession' } | { __typename?: 'PaymentListGateways' } | { __typename?: 'PaymentMethodInitializeTokenizationSession' } | { __typename?: 'PaymentMethodProcessTokenizationSession' } | { __typename?: 'PaymentProcessEvent' } | { __typename?: 'PaymentRefundEvent' } | { __typename?: 'PaymentVoidEvent' } | { __typename?: 'PermissionGroupCreated' } | { __typename?: 'PermissionGroupDeleted' } | { __typename?: 'PermissionGroupUpdated' } | { __typename?: 'ProductCreated' } | { __typename?: 'ProductDeleted' } | { __typename?: 'ProductExportCompleted' } | { __typename?: 'ProductMediaCreated' } | { __typename?: 'ProductMediaDeleted' } | { __typename?: 'ProductMediaUpdated' } | { __typename?: 'ProductMetadataUpdated' } | { __typename?: 'ProductUpdated' } | { __typename?: 'ProductVariantBackInStock' } | { __typename?: 'ProductVariantCreated' } | { __typename?: 'ProductVariantDeleted' } | { __typename?: 'ProductVariantMetadataUpdated' } | { __typename?: 'ProductVariantOutOfStock' } | { __typename?: 'ProductVariantStockUpdated' } | { __typename?: 'ProductVariantUpdated' } | { __typename?: 'PromotionCreated' } | { __typename?: 'PromotionDeleted' } | { __typename?: 'PromotionEnded' } | { __typename?: 'PromotionRuleCreated' } | { __typename?: 'PromotionRuleDeleted' } | { __typename?: 'PromotionRuleUpdated' } | { __typename?: 'PromotionStarted' } | { __typename?: 'PromotionUpdated' } | { __typename?: 'SaleCreated' } | { __typename?: 'SaleDeleted' } | { __typename?: 'SaleToggle' } | { __typename?: 'SaleUpdated' } | { __typename?: 'ShippingListMethodsForCheckout' } | { __typename?: 'ShippingPriceCreated' } | { __typename?: 'ShippingPriceDeleted' } | { __typename?: 'ShippingPriceUpdated' } | { __typename?: 'ShippingZoneCreated' } | { __typename?: 'ShippingZoneDeleted' } | { __typename?: 'ShippingZoneMetadataUpdated' } | { __typename?: 'ShippingZoneUpdated' } | { __typename?: 'ShopMetadataUpdated' } | { __typename?: 'StaffCreated' } | { __typename?: 'StaffDeleted' } | { __typename?: 'StaffSetPasswordRequested' } | { __typename?: 'StaffUpdated' } | { __typename?: 'StoredPaymentMethodDeleteRequested' } | { __typename?: 'ThumbnailCreated' } | { __typename?: 'TransactionCancelationRequested' } | { __typename?: 'TransactionChargeRequested' } | { __typename?: 'TransactionInitializeSession' } | { __typename?: 'TransactionItemMetadataUpdated' } | { __typename?: 'TransactionProcessSession' } | { __typename?: 'TransactionRefundRequested' } | { __typename?: 'TranslationCreated' } | { __typename?: 'TranslationUpdated' } | { __typename?: 'VoucherCodeExportCompleted' } | { __typename?: 'VoucherCodesCreated' } | { __typename?: 'VoucherCodesDeleted' } | { __typename?: 'VoucherCreated' } | { __typename?: 'VoucherDeleted' } | { __typename?: 'VoucherMetadataUpdated' } | { __typename?: 'VoucherUpdated' } | { __typename?: 'WarehouseCreated' } | { __typename?: 'WarehouseDeleted' } | { __typename?: 'WarehouseMetadataUpdated' } | { __typename?: 'WarehouseUpdated' } | null };
+export type PageListQuery = { __typename?: 'Query', pages?: { __typename?: 'PageCountableConnection', edges: Array<{ __typename?: 'PageCountableEdge', node: { __typename?: 'Page', id: string, title: string } }> } | null };
 
-export type LastOrderQueryVariables = Exact<{ [key: string]: never; }>;
+export type ProductsByMetadataQueryVariables = Exact<{
+  first: Scalars['Int'];
+  key: Scalars['String'];
+  value: Scalars['String'];
+}>;
 
 
-export type LastOrderQuery = { __typename?: 'Query', orders?: { __typename?: 'OrderCountableConnection', edges: Array<{ __typename?: 'OrderCountableEdge', node: { __typename?: 'Order', id: string, number: string, created: any, user?: { __typename?: 'User', firstName: string, lastName: string } | null, shippingAddress?: { __typename?: 'Address', country: { __typename?: 'CountryDisplay', country: string } } | null, total: { __typename?: 'TaxedMoney', gross: { __typename?: 'Money', amount: number, currency: string } }, lines: Array<{ __typename?: 'OrderLine', id: string }> } }> } | null };
+export type ProductsByMetadataQuery = { __typename?: 'Query', products?: { __typename: 'ProductCountableConnection', totalCount?: number | null, edges: Array<{ __typename?: 'ProductCountableEdge', node: { __typename: 'Product', id: string, name: string, thumbnail?: { __typename: 'Image', url: string } | null } }> } | null };
 
 import { IntrospectionQuery } from 'graphql';
 export default {
@@ -103450,52 +103454,45 @@ export const UntypedOrderCreatedWebhookPayloadFragmentDoc = gql`
   }
 }
     `;
-export const UntypedOrderCreatedSubscriptionDocument = gql`
-    subscription OrderCreatedSubscription {
-  event {
-    ...OrderCreatedWebhookPayload
-  }
-}
-    ${UntypedOrderCreatedWebhookPayloadFragmentDoc}`;
-
-export function useOrderCreatedSubscriptionSubscription<TData = OrderCreatedSubscriptionSubscription>(options: Omit<Urql.UseSubscriptionArgs<OrderCreatedSubscriptionSubscriptionVariables>, 'query'> = {}, handler?: Urql.SubscriptionHandler<OrderCreatedSubscriptionSubscription, TData>) {
-  return Urql.useSubscription<OrderCreatedSubscriptionSubscription, TData, OrderCreatedSubscriptionSubscriptionVariables>({ query: UntypedOrderCreatedSubscriptionDocument, ...options }, handler);
-};
-export const UntypedLastOrderDocument = gql`
-    query LastOrder {
-  orders(first: 1) {
+export const UntypedPageListDocument = gql`
+    query PageList {
+  pages(first: 100) {
     edges {
       node {
         id
-        number
-        created
-        user {
-          firstName
-          lastName
-        }
-        shippingAddress {
-          country {
-            country
-          }
-        }
-        total {
-          gross {
-            amount
-            currency
-          }
-        }
-        lines {
-          id
-        }
+        title
       }
     }
   }
 }
     `;
 
-export function useLastOrderQuery(options?: Omit<Urql.UseQueryArgs<LastOrderQueryVariables>, 'query'>) {
-  return Urql.useQuery<LastOrderQuery, LastOrderQueryVariables>({ query: UntypedLastOrderDocument, ...options });
+export function usePageListQuery(options?: Omit<Urql.UseQueryArgs<PageListQueryVariables>, 'query'>) {
+  return Urql.useQuery<PageListQuery, PageListQueryVariables>({ query: UntypedPageListDocument, ...options });
+};
+export const UntypedProductsByMetadataDocument = gql`
+    query ProductsByMetadata($first: Int!, $key: String!, $value: String!) {
+  products(first: $first, where: {metadata: [{key: $key, value: $value}]}) {
+    edges {
+      node {
+        id
+        name
+        thumbnail(size: 256) {
+          url
+          __typename
+        }
+        __typename
+      }
+    }
+    totalCount
+    __typename
+  }
+}
+    `;
+
+export function useProductsByMetadataQuery(options: Omit<Urql.UseQueryArgs<ProductsByMetadataQueryVariables>, 'query'>) {
+  return Urql.useQuery<ProductsByMetadataQuery, ProductsByMetadataQueryVariables>({ query: UntypedProductsByMetadataDocument, ...options });
 };
 export const OrderCreatedWebhookPayloadFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderCreatedWebhookPayload"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderCreated"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"order"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userEmail"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"number"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}}]}}]} as unknown as DocumentNode<OrderCreatedWebhookPayloadFragment, unknown>;
-export const OrderCreatedSubscriptionDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"subscription","name":{"kind":"Name","value":"OrderCreatedSubscription"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"event"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"OrderCreatedWebhookPayload"}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"OrderCreatedWebhookPayload"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"OrderCreated"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"order"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"userEmail"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"number"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"email"}},{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}}]}}]}}]} as unknown as DocumentNode<OrderCreatedSubscriptionSubscription, OrderCreatedSubscriptionSubscriptionVariables>;
-export const LastOrderDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"LastOrder"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"orders"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"number"}},{"kind":"Field","name":{"kind":"Name","value":"created"}},{"kind":"Field","name":{"kind":"Name","value":"user"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"firstName"}},{"kind":"Field","name":{"kind":"Name","value":"lastName"}}]}},{"kind":"Field","name":{"kind":"Name","value":"shippingAddress"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"country"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"country"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"total"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"gross"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"amount"}},{"kind":"Field","name":{"kind":"Name","value":"currency"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"lines"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<LastOrderQuery, LastOrderQueryVariables>;
+export const PageListDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"PageList"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pages"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"100"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}}]}}]}}]}}]}}]} as unknown as DocumentNode<PageListQuery, PageListQueryVariables>;
+export const ProductsByMetadataDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ProductsByMetadata"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"first"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"key"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"value"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"String"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"products"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"Variable","name":{"kind":"Name","value":"first"}}},{"kind":"Argument","name":{"kind":"Name","value":"where"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"metadata"},"value":{"kind":"ListValue","values":[{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"key"},"value":{"kind":"Variable","name":{"kind":"Name","value":"key"}}},{"kind":"ObjectField","name":{"kind":"Name","value":"value"},"value":{"kind":"Variable","name":{"kind":"Name","value":"value"}}}]}]}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"edges"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"node"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"thumbnail"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"size"},"value":{"kind":"IntValue","value":"256"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}},{"kind":"Field","name":{"kind":"Name","value":"totalCount"}},{"kind":"Field","name":{"kind":"Name","value":"__typename"}}]}}]}}]} as unknown as DocumentNode<ProductsByMetadataQuery, ProductsByMetadataQueryVariables>;

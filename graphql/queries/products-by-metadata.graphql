@@ -1,0 +1,17 @@
+query ProductsByMetadata($first: Int!, $key: String!, $value: String!) {
+  products(first: $first, where: { metadata: [{ key: $key, value: $value }] }) {
+    edges {
+      node {
+        id
+        name
+        thumbnail(size: 256) {
+          url
+          __typename
+        }
+        __typename
+      }
+    }
+    totalCount
+    __typename
+  }
+} 

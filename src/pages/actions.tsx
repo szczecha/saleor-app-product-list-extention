@@ -1,8 +1,6 @@
 import { actions, useAppBridge } from "@saleor/app-sdk/app-bridge";
 import { Box, Button, Text } from "@saleor/macaw-ui";
 
-import { OrderExample } from "../order-example";
-
 /**
  * This is example of using AppBridge, when App is mounted in Dashboard
  * See more about AppBridge possibilities
@@ -13,10 +11,10 @@ import { OrderExample } from "../order-example";
 const ActionsPage = () => {
   const { appBridge, appBridgeState } = useAppBridge();
 
-  const navigateToOrders = () => {
+  const navigateToProducts = () => {
     appBridge?.dispatch(
       actions.Redirect({
-        to: `/orders`,
+        to: `/products`,
       })
     );
   };
@@ -53,34 +51,10 @@ const ActionsPage = () => {
           >
             Trigger notification 📤
           </Button>
-          <Button variant={"secondary"} onClick={navigateToOrders}>
-            Redirect to orders ➡️💰
+          <Button variant={"secondary"} onClick={navigateToProducts}>
+            Go to products ➡️
           </Button>
         </Box>
-      </Box>
-      <OrderExample />
-      <Box display="flex" flexDirection={"column"} gap={2}>
-        <Text as={"h2"} size={8}>
-          Webhooks
-        </Text>
-        <Text>
-          The App Template contains an example <code>ORDER_CREATED</code> webhook under the path{" "}
-          <code>src/pages/api/order-created</code>.
-        </Text>
-        <Text as="p">
-          Create any{" "}
-          <Text
-            as={"a"}
-            fontWeight="bold"
-            size={4}
-            onClick={navigateToOrders}
-            cursor={"pointer"}
-            color={"info1"}
-          >
-            Order
-          </Text>{" "}
-          and check your console output!
-        </Text>
       </Box>
     </Box>
   );

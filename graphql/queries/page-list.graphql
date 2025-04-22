@@ -1,0 +1,10 @@
+query PageList {
+  pages(first: 100) {
+    edges {
+      node {
+        id
+        title
+      }
+    }
+  }
+} 
